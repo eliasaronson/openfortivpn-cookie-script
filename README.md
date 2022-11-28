@@ -47,6 +47,7 @@ git clone https://github.com/gm-vm/openfortivpn-webview.git
 ```
 cd openfortivpn-webview/openfortivpn-webview-electron
 npm install
+```
 
 ### Connection script
 0. In the connection script check if you cloned openfortivpn-webview to the same
