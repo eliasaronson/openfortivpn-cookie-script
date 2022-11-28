@@ -3,7 +3,7 @@ This repo contains instruction on how to connect to a Fortinet VPN with Openfort
 
 If you are tired of the official client, there is an open source alternative.
 It is a lot more reliable (tested by me on Manjaro), but requires some initial set-up
-and might be less secure? I take no responsibility for that.
+(and might be less secure?).
 
 The main Openfortivpn client doesn't support saml-login as of now, so this
 method relies on a forked version along with a tools to login to your
