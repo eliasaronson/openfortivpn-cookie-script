@@ -55,9 +55,9 @@ path as in the script, otherwise change the cd in the script to the correct
 path. You also need to set the url for the saml-login.
 
 1. Run the script.
-'''
+```
 ./vpn_connect.sh
-'''
+```
 
 ### Manual connection
 Once the installation has been completed, you only have to perform the following steps.
