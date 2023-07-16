@@ -6,14 +6,14 @@ It is a lot more reliable (tested by me on Manjaro and by some other guy on Nixo
 but requires some initial set-up (and might be less secure?).
 
 The main Openfortivpn client supports saml-login. You also need openfortivpn-webview,
-which is used to automatically retrieve the saml cookie. The code in your google-authenticator
-needs to be provided to the openfortivpn-webview, so it can perform its task.
+which is used to automatically retrieve the saml cookie. The google-authenticator's
+code is needed for the openfortivpn-webview, so it can perform its task.
 
 ## Openfortivpn
-### Installation (preferred)
+### Instal openfortivpn (preferred)
 Use your distro's packet manager to install the openfortivpn package.
 
-### Manual build (alternative)
+### Manual build openfortivpn (alternative)
 1. Clone [openfortivpn](https://github.com/adrienverge/openfortivpn) to a suitable
 location, build and install.
 
@@ -26,7 +26,7 @@ make
 sudo make install
 ```
 
-### Settings
+### Settings openfortivpn
 Add a config file for the VPN-connection.
 
 Create  file "/etc/openfortivpn/my-config".
@@ -40,10 +40,10 @@ port = <port number>
 ```
 
 ## Openfortivpn-webview
-### Installation (preferred)
+### Installation openfortivpn-webview (preferred)
 Use your distro's packet manager to install the openfortivpn-webview package.
 
-### Manual build (alternative electron)
+### Manual build openfortivpn-webview (variant electron)
 Clone [openfortivpn-webview](https://github.com/gm-vm/openfortivpn-webview)
 to a suitable location, build and install.
 
@@ -53,7 +53,7 @@ cd openfortivpn-webview/openfortivpn-webview-electron
 npm install
 ```
 
-### Manual Build openfortivpn-webview (alternative qt)
+### Manual Build openfortivpn-webview (variant qt)
 Clone [openfortivpn-webview](https://github.com/gm-vm/openfortivpn-webview)
 to a suitable location, build and install.
 
@@ -66,11 +66,8 @@ make install
 ```
 
 ### Connection script
-0. In the connection script check if you cloned openfortivpn-webview to the same
-path as in the script, otherwise change the cd in the script to the correct
-path. You also need to set the url for the saml-login.
-
-1. To run the script.
+Fix all necessary pathes according your needs in the vpn\_connect.sh script, then
+run the script.
 ```
 ./vpn_connect.sh
 ```
