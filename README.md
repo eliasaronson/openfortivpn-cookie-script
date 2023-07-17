@@ -3,61 +3,55 @@ This repo contains instruction on how to connect to a Fortinet VPN with Openfort
 
 If you are tired of the official client, there is an open source alternative.
 It is a lot more reliable (tested by me on Manjaro and by some other guy on Nixos),
-but requires some initial set-up (and might be less secure?).
+but requires some initial set-up.
 
-The main Openfortivpn client supports saml-login. You also need openfortivpn-webview,
-which is used to automatically retrieve the saml cookie. The google-authenticator's
-code is needed for the openfortivpn-webview, so it can perform its task.
+Openfortivpn client supports saml-login through cookies, but has now way of retreving these. To do this openfortivpn-webview can be used. It opens a browser, lets you login throught your saml-login and retivres the cookie.
 
-## Openfortivpn
-### Instal openfortivpn (preferred)
+## Setup
+### Install openfortivpn
 Use your distro's packet manager to install the openfortivpn package.
 
-### Manual build openfortivpn (alternative)
-1. Clone [openfortivpn](https://github.com/adrienverge/openfortivpn) to a suitable
-location, build and install.
+  Arch:
+  ```shell
+  sudo pacman -S openfortivpn
+  ```
 
-```
-git clone https://github.com/adrienverge/openfortivpn.git
-cd openfortivpn
-./autogen.sh
-./configure --prefix=/usr/local --sysconfdir=/etc
-make
-sudo make install
-```
+  Ubuntu:
+  ```shell
+  sudo apt install openfortivpn
+  ```
 
-### Settings openfortivpn
+### openfortivpn settings
 Add a config file for the VPN-connection.
 
-Create  file "/etc/openfortivpn/my-config".
-```
+Create a file "/etc/openfortivpn/my-config".
+```shell
 sudo vim /etc/openfortivpn/my-config
 ```
 Add the url to your host and the port number.
-```
+```shell
 host = <vpn.your-url.com>
 port = <port number>
 ```
 
-## Openfortivpn-webview
-### Installation openfortivpn-webview (preferred)
-Use your distro's packet manager to install the openfortivpn-webview package.
+### Openfortivpn-webview
+If it exsists you can use your distro's packet manager to install the openfortivpn-webview package, otherwise just clone the repo.
 
-### Manual build openfortivpn-webview (variant electron)
+#### Manual build openfortivpn-webview (variant electron)
 Clone [openfortivpn-webview](https://github.com/gm-vm/openfortivpn-webview)
 to a suitable location, build and install.
 
-```
+```shell
 git clone https://github.com/gm-vm/openfortivpn-webview.git
 cd openfortivpn-webview/openfortivpn-webview-electron
 npm install
 ```
 
-### Manual Build openfortivpn-webview (variant qt)
+#### Manual Build openfortivpn-webview (variant qt)
 Clone [openfortivpn-webview](https://github.com/gm-vm/openfortivpn-webview)
 to a suitable location, build and install.
 
-```
+```shell
 git clone https://github.com/gm-vm/openfortivpn-webview.git
 cd openfortivpn-webview/openfortivpn-webview-qt
 qmake .
@@ -66,9 +60,15 @@ make install
 ```
 
 ### Connection script
-Fix all necessary pathes according your needs in the vpn\_connect.sh script, then
+Fix all necessary pathes according to your needs in the vpn\_connect.sh script, then
 run the script.
+```shell
+./vpn_connect.sh
 ```
+
+## Running
+After the setup, the only thing you need to do to connect is to run the script.
+```shell
 ./vpn_connect.sh
 ```
 
